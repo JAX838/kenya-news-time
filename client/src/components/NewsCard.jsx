@@ -57,7 +57,7 @@ const NewsCard = ({ article, compact = false }) => {
           <img
             src={article.image_url}
             alt={article.title}
-            className="w-full h-32 sm:h-40 md:h-48 object-cover rounded-t-lg"
+            className="w-full h-32 sm:h-60 sm:w-30 md:h-48 object-cover rounded-t-lg"
           />
         ) : (
           <div className="w-full h-32 sm:h-40 bg-gray-200 flex items-center justify-center rounded-t-lg">
