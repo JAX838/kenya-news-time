@@ -15,10 +15,11 @@ const Headlines = () => {
   const sliderRef = useRef(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/news/top")
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    fetch(`${apiUrl}/api/news/top`)
       .then((res) => res.json())
       .then((data) => {
-        setNews(data.slice(0, 10)); // more headlines for smooth scroll
+        setNews(data.slice(0, 10));
         setLoading(false);
       })
       .catch(() => {

@@ -12,7 +12,8 @@ const CategoryPage = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/api/news/${category.toLowerCase()}`)
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    fetch(`${apiUrl}/api/news/${category.toLowerCase()}`)
       .then((res) => res.json())
       .then((data) => {
         setNews(data);

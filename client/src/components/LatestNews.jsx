@@ -7,7 +7,8 @@ const PopularNews = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/news/education") // Or 'top' for popular
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    fetch(`${apiUrl}/api/news/education`) // Or 'top' for popular
       .then((res) => res.json())
       .then((data) => {
         setNews(data.slice(0, 3));

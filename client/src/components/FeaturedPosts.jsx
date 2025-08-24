@@ -7,13 +7,10 @@ const FeaturedPosts = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
     Promise.all([
-      fetch("http://localhost:5000/api/news/technology").then((res) =>
-        res.json()
-      ),
-      fetch("http://localhost:5000/api/news/business").then((res) =>
-        res.json()
-      ),
+      fetch(`${apiUrl}/api/news/technology`).then((res) => res.json()),
+      fetch(`${apiUrl}/api/news/business`).then((res) => res.json()),
     ])
       .then(([healthData, businessData]) => {
         const healthArticles = Array.isArray(healthData)

@@ -8,7 +8,8 @@ const SearchResults = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/search?q=${query}`)
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    fetch(`${apiUrl}/api/search?q=${query}`)
       .then((res) => res.json())
       .then((data) => {
         setNews(data);

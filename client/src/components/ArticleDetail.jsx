@@ -15,8 +15,9 @@ const ArticleDetail = () => {
   const [website, setWebsite] = useState("");
 
   useEffect(() => {
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
     if (!article) {
-      fetch("http://localhost:5000/api/news/top")
+      fetch(`${apiUrl}/api/news/top`)
         .then((res) => res.json())
         .then((data) => {
           const found = data.find(
@@ -33,9 +34,7 @@ const ArticleDetail = () => {
     if (article && !article.content && article.link) {
       setContentLoading(true);
       fetch(
-        `http://localhost:5000/api/article/content?url=${encodeURIComponent(
-          article.link
-        )}`
+        `${apiUrl}/api/article/content?url=${encodeURIComponent(article.link)}`
       )
         .then((res) => res.json())
         .then((full) => {
@@ -47,9 +46,7 @@ const ArticleDetail = () => {
     }
 
     if (article?.category?.[0]) {
-      fetch(
-        `http://localhost:5000/api/news/${article.category[0].toLowerCase()}`
-      )
+      fetch(`${apiUrl}/api/news/${article.category[0].toLowerCase()}`)
         .then((res) => res.json())
         .then((data) => setRelatedNews(data.slice(0, 3)))
         .finally(() => setLoading(false));

@@ -6,7 +6,8 @@ const MainCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/news/technology")
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    fetch(`${apiUrl}/api/news/technology`)
       .then((res) => res.json())
       .then((data) => {
         setNews(data.slice(0, 5));

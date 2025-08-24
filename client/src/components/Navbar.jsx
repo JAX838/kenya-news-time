@@ -38,7 +38,8 @@ const Navbar = () => {
   });
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/news/top")
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    fetch(`${apiUrl}/api/news/top`)
       .then((res) => res.json())
       .then((data) => {
         if (data && data.length > 0) {

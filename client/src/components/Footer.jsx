@@ -8,11 +8,12 @@ const Footer = () => {
   const [mostRead, setMostRead] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/news/top")
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    fetch(`${apiUrl}/api/news/top`)
       .then((res) => res.json())
       .then((data) => setMissedNews(data.slice(0, 4)));
 
-    fetch("http://localhost:5000/api/news/politics")
+    fetch(`${apiUrl}/api/news/politics`)
       .then((res) => res.json())
       .then((data) => setMostRead(data.slice(0, 6)));
   }, []);
