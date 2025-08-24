@@ -29,7 +29,7 @@ const NewsCard = ({ article, compact = false }) => {
 
           {/* Text */}
           <div className="flex flex-col">
-            <div className="flex items-center text-gray-500 text-[10px] sm:text-xs mb-1">
+            <div className="flex items-center text-gray-500 text-[5px] sm:text-hidden mb-1">
               <FaRegClock className="mr-1" />
               {new Date(article.pubDate).toLocaleDateString("en-US", {
                 year: "numeric",
