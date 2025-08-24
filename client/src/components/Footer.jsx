@@ -42,8 +42,9 @@ const Footer = () => {
       <div className="px-2 sm:px-4 border-b-4 border-red-600">
         <Slider {...settings}>
           {missedNews.map((article, idx) => (
-            <div key={idx} className="px-2">
-              <div className="w-full h-full">
+            <div key={idx} className="px-2 flex justify-center">
+              {/* Limit card max width so it doesn’t stretch too wide */}
+              <div className="w-full max-w-xs sm:max-w-sm md:max-w-md">
                 <NewsCard article={article} />
               </div>
             </div>
