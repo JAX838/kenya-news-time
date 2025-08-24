@@ -63,7 +63,7 @@ const NewsCard = ({ article, compact = false }) => {
         </span>
         <h3 className="font-bold text-lg mb-1">{article.title}</h3>
         <p className="text-sm text-gray-600 mb-2">
-          @{article.creator || "Admin NewsLightKenya"} ·{" "}
+          @{article.creator || "Admin KenyanewsTime"} ·{" "}
           {new Date(article.pubDate).toLocaleDateString("en-US", {
             month: "long",
             day: "numeric",

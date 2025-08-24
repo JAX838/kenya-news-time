@@ -42,8 +42,10 @@ const Footer = () => {
       <div className="px-2 sm:px-4 border-b-4 border-red-600">
         <Slider {...settings}>
           {missedNews.map((article, idx) => (
-            <div key={idx} className="p-2">
-              <NewsCard article={article} />
+            <div key={idx} className="px-2">
+              <div className="w-full h-full">
+                <NewsCard article={article} />
+              </div>
             </div>
           ))}
         </Slider>
@@ -61,10 +63,10 @@ const Footer = () => {
             analysis.
           </p>
           <p className="text-gray-400 text-xs sm:text-sm">
-            Email: info@newslightkenya.co.ke
+            Email: info@kenya news time.co.ke
           </p>
           <p className="text-gray-400 text-xs sm:text-sm">
-            Tel: +254 796 230047
+            Tel: +254 769399725
           </p>
         </div>
 
@@ -93,11 +95,9 @@ const Footer = () => {
           <h3 className="text-lg sm:text-xl font-semibold mb-3">Categories</h3>
           <ul className="grid grid-cols-2 sm:grid-cols-1 gap-y-2 text-gray-300 text-sm">
             {[
-              "Agriculture",
-              "Business",
-              "Climate",
-              "Court",
-              "Education",
+              "health",
+              "business",
+              "education",
               "Entertainment",
               "Environmental",
               "Fashion",
@@ -106,7 +106,7 @@ const Footer = () => {
               "Innovation",
               "News",
               "Opinion",
-              "Politics",
+              "politics",
             ].map((category) => (
               <li key={category}>
                 <Link
